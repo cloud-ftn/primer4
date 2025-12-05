@@ -1,22 +1,24 @@
-name: Deployment
+name: Deployment (Container)
 on:
   push:
     branches:
       - main
       - dev
   workflow_dispatch:
+    
 env:
   CACHE_KEY: node-deps
-  MONGODB_DB_NAME: gha-demo
+  MONGODB_DB_NAME: db
 jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
-      MONGODB_CLUSTER_ADDRESS: cluster0.qklpgqe.mongodb.net
-      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_CLUSTER_ADDRESS: cluster0.725n4gp.mongodb.net
+      MONGODB_USERNAME: oblakftn_db_user
+      MONGODB_PASSWORD: aKK1ei2hisLBn6A4
+      MONGODB_DB_NAME: db
       PORT: 8080
     steps:
       - name: Get Code
